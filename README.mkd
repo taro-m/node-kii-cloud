@@ -1,0 +1,4 @@
+# Access to Kii Cloud
+
+Library to access REST API of Kii Cloud via NodeJS.
+No other dependencies.
