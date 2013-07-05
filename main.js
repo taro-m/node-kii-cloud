@@ -8,6 +8,17 @@ var ktx = new kii.Context(config.region, config.appID, config.appKey);
 ktx.setupAccessToken(config.clientID, config.clientSecret, handleAccessToken);
 
 function handleAccessToken(token) {
-  console.log('HERE: ' + token);
   console.log('ktx: ' + util.inspect(ktx));
+  ktx.adminRequest(null, null, handleAppInfo);
+}
+
+function handleAppInfo(res, obj) {
+  console.log();
+  console.log('appInfo: ' + util.inspect(obj));
+  ktx.adminRequest('acl', null, handleAppACLInfo);
+}
+
+function handleAppACLInfo(res, obj) {
+  console.log();
+  console.log('handleAppACLInfo: ' + util.inspect(obj));
 }
